@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module ServerlessHelpers::Event::Aws
   class Sns < ServerlessHelpers::Event::Base
     def messages()
