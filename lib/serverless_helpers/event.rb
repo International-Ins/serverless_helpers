@@ -1,8 +1,11 @@
 # Base class for handling events.
 # Requires specific implementation from service providing the event.
 
+
 require 'serverless_helpers/event/base'
 require 'serverless_helpers/event/aws'
+
+require 'serverless_helpers/event/parser'
 
 module ServerlessHelpers
   class Event
