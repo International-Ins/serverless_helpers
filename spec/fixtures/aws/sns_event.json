@@ -1,0 +1,22 @@
+{
+  "Records": [
+      {
+          "EventSource": "aws:sns",
+          "EventVersion": "1.0",
+          "EventSubscriptionArn": "arn:aws:sns:us-west-2:112233445566:demo-dev-Topic-JSTMFREHSV9U-Engineering-1PS3HM70TS67H:ba5887af-fe4c-44c9-bbd7-f7f0e6d652de",
+          "Sns": {
+              "Type": "Notification",
+              "MessageId": "e3d54a5f-fee2-51cc-abc7-1eb99d074475",
+              "TopicArn": "arn:aws:sns:us-west-2:112233445566:demo-dev-Topic-JSTMFREHSV9U-Engineering-1PS3HM70TS67H",
+              "Subject": null,
+              "Message": "Test Message",
+              "Timestamp": "2019-02-19T20:05:57.063Z",
+              "SignatureVersion": "1",
+              "Signature": "XDv0YTmNgyfqTLiWDev6ZRMkl9PoWnlAYIM5jW9PmPRrYG+TdfDAxcxmD7gYsEk3Eol/EqtBlFHTjWVcH7F6JQDu6hNO1P4f/k0VLGX94AdMP51riGDAC/S4yuHPT1Muq1WLFuT/Ttol1cTW2UH5kVMG7eIOfNTt4Qe3Kf4q2pRNTh5Z2EGULgjkea//OsRIfz3vfLlNUTyn1JKp2Q427CpoSZ/4YSk/wdL7IEVzWbKssgkiITIzLxS/KUr30OF+WLCnvHbBLVXo8nyscRTHRho6cgC4QtjUL6XOeXh5EPg4NB0i5nzgBe+2xIgXne5yMUHIWwW6fQ8Ouq+UliO4ZA==",
+              "SigningCertUrl": "https://sns.us-west-2.amazonaws.com/SimpleNotificationService-ac565b8b1a6c5d002d285f9598aa1d9b.pem",
+              "UnsubscribeUrl": "https://sns.us-west-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-west-2:112233445566:demo-dev-Topic-JSTMFREHSV9U-Engineering-1PS3HM70TS67H:ba5887af-fe4c-44c9-bbd7-f7f0e6d652de",
+              "MessageAttributes": {}
+          }
+      }
+  ]
+}

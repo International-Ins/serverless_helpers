@@ -1,4 +1,5 @@
 require "bundler/setup"
+require 'byebug'
 require "serverless_helpers"
 
 RSpec.configure do |config|
@@ -11,4 +12,13 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+def file_fixture(filename)
+  File.read(
+    File.join(
+      File.dirname(__FILE__),
+      'fixtures',
+    filename)
+  )
 end
