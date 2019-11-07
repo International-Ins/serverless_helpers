@@ -9,7 +9,7 @@ require 'serverless_helpers/event/parser'
 
 module ServerlessHelpers
   class Event
-    def self.for(event, provider:, type:)
+    def self.for(event, provider: ServerlessHelpers.config.provider.identifier, type: ServerlessHelpers.config.provider.type)
       return class_for(provider, type).new(event)
     end
 

@@ -11,4 +11,9 @@ module ServerlessHelpers
 
   extend Dry::Configurable
   setting :event_parser, Event::Parser::Plain.new
+
+  setting :provider do
+    setting :identifier, 'aws'
+    setting :type, 'sns'
+  end
 end
