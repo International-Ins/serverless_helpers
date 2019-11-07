@@ -22,7 +22,8 @@ RSpec.describe ServerlessHelpers::Event::Parser::Avro do
       logger: logger,
       client_cert: client_cert,
       client_key: client_key,
-      client_key_pass: client_key_pass
+      client_key_pass: client_key_pass,
+      schema_name: schema_name
     }
   }
 
@@ -31,12 +32,12 @@ RSpec.describe ServerlessHelpers::Event::Parser::Avro do
   }
 
   let(:avro) {
-    AvroTurf::Messaging.new(avro_options)
+    AvroTurf::Messaging.new(avro_options.except(:schema_name))
   }
 
   let(:message) { { "full_name" => "John Doe" } }
   # Required to add the schema to the registry.
-  let(:avro_message) { parser.encode(message, schema_name: schema_name) }
+  let(:avro_message) { parser.encode(message) }
   let(:schema_name) { "person" }
   let(:schema_json) do
     <<-AVSC
@@ -62,16 +63,17 @@ RSpec.describe ServerlessHelpers::Event::Parser::Avro do
   end
 
   it "encodes consistently" do
-    expect(parser.encode(message, {schema_name: schema_name})).to eql avro_message
+    expect(parser.encode(message)).to eql avro_message
   end
 
   it "decodes consistently" do
-    expect(parser.decode(avro_message, {schema_name: schema_name})).to eql message
+    expect(parser.decode(avro_message)).to eql message
   end
 
   it "accepts a fully-formed avro object" do
     allow(avro).to receive(:encode).and_call_original
-    expect(avro.encode(message, {schema_name: schema_name})).to eql avro_message
+    local_parser = described_class.new(options: {avro: avro, schema_name: schema_name})
+    expect(local_parser.encode(message)).to eql avro_message
     expect(avro).to have_received(:encode)
   end
 end

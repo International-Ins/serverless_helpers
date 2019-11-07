@@ -6,15 +6,15 @@ module ServerlessHelpers::Event::Parser
     def initialize(options: {})
       super
       @avro ||= options[:avro] if options.include? :avro
-      @avro ||= AvroTurf::Messaging.new(@options)
+      @avro ||= AvroTurf::Messaging.new(@options.excluding(:schema_name))
     end
 
-    def encode(data, options)
-      @avro.encode(data, options)
+    def encode(data)
+      @avro.encode(data, schema_name: @options[:schema_name])
     end
 
-    def decode(data, options)
-      @avro.decode(data, options)
+    def decode(data)
+      @avro.decode(data, schema_name: @options[:schema_name])
     end
   end
 end
