@@ -4,6 +4,7 @@
 require 'serverless_helpers/event/parser/base'
 require 'serverless_helpers/event/parser/plain'
 require 'serverless_helpers/event/parser/yaml'
+require 'serverless_helpers/event/parser/avro'
 
 module ServerlessHelpers::Event::Parser
 end
