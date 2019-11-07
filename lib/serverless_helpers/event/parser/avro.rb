@@ -5,7 +5,8 @@ module ServerlessHelpers::Event::Parser
   class Avro < Base
     def initialize(options: {})
       super
-      @avro = AvroTurf::Messaging.new(@options)
+      @avro ||= options[:avro] if options.include? :avro
+      @avro ||= AvroTurf::Messaging.new(@options)
     end
 
     def encode(data, options)

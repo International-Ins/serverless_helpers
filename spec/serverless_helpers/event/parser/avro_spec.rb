@@ -1,4 +1,5 @@
 require 'avro_turf'
+require 'avro_turf/messaging'
 require 'avro_turf/test/fake_confluent_schema_registry_server'
 require 'webmock/rspec'
 
@@ -14,16 +15,23 @@ RSpec.describe ServerlessHelpers::Event::Parser::Avro do
   let(:client_key) { "test client key" }
   let(:client_key_pass) { "test client key password" }
   let(:logger) { Logger.new(StringIO.new) }
-
-  let(:parser) {
-    described_class.new(options: {
+  let(:avro_options) {
+    {
       registry_url: registry_url,
       schemas_path: "spec/schemas",
       logger: logger,
       client_cert: client_cert,
       client_key: client_key,
       client_key_pass: client_key_pass
-    })
+    }
+  }
+
+  let(:parser) {
+    described_class.new(options: avro_options)
+  }
+
+  let(:avro) {
+    AvroTurf::Messaging.new(avro_options)
   }
 
   let(:message) { { "full_name" => "John Doe" } }
@@ -59,5 +67,11 @@ RSpec.describe ServerlessHelpers::Event::Parser::Avro do
 
   it "decodes consistently" do
     expect(parser.decode(avro_message, {schema_name: schema_name})).to eql message
+  end
+
+  it "accepts a fully-formed avro object" do
+    allow(avro).to receive(:encode).and_call_original
+    expect(avro.encode(message, {schema_name: schema_name})).to eql avro_message
+    expect(avro).to have_received(:encode)
   end
 end
