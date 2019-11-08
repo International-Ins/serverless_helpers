@@ -19,7 +19,7 @@ module ServerlessHelpers::Event::Aws
     end
 
     def parse(message)
-      ServerlessHelpers.config.event_parser.decode(message)
+      ServerlessHelpers.config.event.parser.decode(message)
     end
 
     class Message < OpenStruct; end

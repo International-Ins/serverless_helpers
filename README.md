@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/International-Ins/serverless_helpers.svg?branch=master)](https://travis-ci.org/International-Ins/serverless_helpers)
+
 # ServerlessHelpers
 
 This package is intended to provide a useful set of helpers when developing serverless functions in Ruby.  

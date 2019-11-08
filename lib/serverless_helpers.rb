@@ -10,13 +10,17 @@ module ServerlessHelpers
   class Error < StandardError; end
 
   extend Dry::Configurable
-  setting(:event_parser, :plain) do |value|
-    SymbolToClassParser.call(
-      argument: value,
-      type: :event,
-      namespace: :parser,
-      base_class: ServerlessHelpers::Event::Parser::Base
-    )
+  setting :event do
+    setting(:parser, :plain) do |value|
+      SymbolToClassParser.call(
+        argument: value,
+        type: :event,
+        namespace: :parser,
+        base_class: ServerlessHelpers::Event::Parser::Base
+      )
+    end
+    setting :provider
+    setting :type
   end
 
   private
