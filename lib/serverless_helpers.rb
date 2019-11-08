@@ -5,6 +5,7 @@ require 'dry-configurable'
 
 require "serverless_helpers/version"
 require "serverless_helpers/event"
+require "serverless_helpers/producer"
 
 module ServerlessHelpers
   class Error < StandardError; end
@@ -21,6 +22,11 @@ module ServerlessHelpers
     end
     setting :provider
     setting :type
+  end
+
+  setting :aws do
+    setting :region
+    setting :arn
   end
 
   private
