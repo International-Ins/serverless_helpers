@@ -2,7 +2,7 @@ require 'aws-sdk-sns'
 
 module ServerlessHelpers::Source::Aws
   class Sns < ServerlessHelpers::Source::Base
-    def initialize(options: {}, region: ServerlessHelpers.config.aws.region, topic_arn: ServerlessHelpers.config.aws.arn, topic: nil)
+    def initialize(options, region: ServerlessHelpers.config.aws.region, topic_arn: ServerlessHelpers.config.aws.arn, topic: nil)
       super(options)
       @topic = topic || Aws::SNS::Resource.new(region: region).topic(topic_arn)
       raise ArgumentError.new(
