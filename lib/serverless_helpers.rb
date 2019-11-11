@@ -5,7 +5,7 @@ require 'dry-configurable'
 
 require "serverless_helpers/version"
 require "serverless_helpers/event"
-require "serverless_helpers/producer"
+require "serverless_helpers/source"
 
 module ServerlessHelpers
   class Error < StandardError; end
@@ -19,6 +19,9 @@ module ServerlessHelpers
         base_class: ServerlessHelpers::Encoder::Base
       )
     end
+  end
+
+  setting :source do
     setting :provider
     setting :type
   end

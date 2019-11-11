@@ -9,8 +9,8 @@ RSpec.describe ServerlessHelpers::Event do
   end
 
   it "should default provider and type arguments to configuration variables" do
-    ServerlessHelpers.config.event.provider = :aws
-    ServerlessHelpers.config.event.type = :sns
-    expect(described_class.for({})).to be_instance_of "#{described_class.to_s}::#{ServerlessHelpers.config.event.provider.to_s.camelize}::#{ServerlessHelpers.config.event.type.to_s.camelize}".constantize
+    ServerlessHelpers.config.source.provider = :aws
+    ServerlessHelpers.config.source.type = :sns
+    expect(described_class.for({})).to be_instance_of "#{described_class.to_s}::#{ServerlessHelpers.config.source.provider.to_s.camelize}::#{ServerlessHelpers.config.source.type.to_s.camelize}".constantize
   end
 end

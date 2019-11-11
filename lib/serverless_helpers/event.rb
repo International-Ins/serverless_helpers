@@ -9,7 +9,7 @@ require 'serverless_helpers/encoder'
 
 module ServerlessHelpers
   class Event
-    def self.for(event, provider: ServerlessHelpers.config.event.provider, type: ServerlessHelpers.config.event.type)
+    def self.for(event, provider: ServerlessHelpers.config.source.provider, type: ServerlessHelpers.config.source.type)
       return class_for(provider, type).new(event)
     end
 

@@ -1,11 +1,7 @@
-module ServerlessHelpers::Producer
+module ServerlessHelpers::Source
   class Base
     def initialize(options)
       @options = options
-    end
-
-    def publish(message)
-      raise NotImplementedError.new("#{self.class}#publish is not yet implemented.")
     end
 
     private
