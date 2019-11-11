@@ -10,6 +10,10 @@ module ServerlessHelpers::Source
       parser.encode(message)
     end
 
+    def decode(message)
+      parser.decode(message)
+    end
+
     def parser
       ServerlessHelpers.config.event.parser
     end

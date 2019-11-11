@@ -31,6 +31,11 @@ module ServerlessHelpers
     setting :arn
   end
 
+  setting :kafka do
+    setting :brokers, []
+    setting :client_id
+  end
+
   private
   
   class SymbolToClassParser

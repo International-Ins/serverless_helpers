@@ -17,8 +17,8 @@ module ServerlessHelpers::Source::Aws
       })
     end
 
-    def subscribe(raw_event)
-      raise NoMethodError.new("#{self.class} requires subscription through SNS.  Did you mean #handle?")
+    def subscribe()
+      raise NoMethodError.new("#{self.class} requires subscription through AWS itself (Lambda?).  Did you mean #decode_event ?")
     end
 
     def decode_event(raw_event)

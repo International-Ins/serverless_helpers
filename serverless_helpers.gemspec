@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "dry-configurable", "~> 0.8"
   spec.add_dependency "avro_turf", "~> 0.11"
   spec.add_dependency "aws-sdk-sns", '~> 1.20.0'
+  spec.add_dependency "ruby-kafka", '~> 0.7.10'
 end
