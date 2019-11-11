@@ -1,11 +1,11 @@
-require 'serverless_helpers/event/parser/shared_examples'
+require 'serverless_helpers/encoder/shared_examples'
 
-RSpec.describe ServerlessHelpers::Event::Parser::Yaml do
+RSpec.describe ServerlessHelpers::Encoder::Yaml do
   let (:parser) { described_class.new }
   let (:plain_message) { {foo: :bar, baz: 123, bool: true} }
   let (:yaml_message) { "---\n:foo: :bar\n:baz: 123\n:bool: true\n" }
 
-  include_examples "servless_helpers/event/parser/shared_examples"
+  include_examples "servless_helpers/encoder/shared_examples"
 
   it "does nothing when encoding" do
     expect(parser.encode(plain_message)).to eql yaml_message

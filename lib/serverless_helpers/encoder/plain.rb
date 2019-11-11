@@ -1,4 +1,4 @@
-module ServerlessHelpers::Event::Parser
+module ServerlessHelpers::Encoder
   class Plain < Base
     def encode(data)
       data

@@ -1,7 +1,7 @@
 require 'avro_turf'
 require 'avro_turf/messaging'
 
-module ServerlessHelpers::Event::Parser
+module ServerlessHelpers::Encoder
   class Avro < Base
     def initialize(options: {})
       super

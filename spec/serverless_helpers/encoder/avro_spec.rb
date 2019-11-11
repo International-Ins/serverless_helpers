@@ -3,9 +3,9 @@ require 'avro_turf/messaging'
 require 'avro_turf/test/fake_confluent_schema_registry_server'
 require 'webmock/rspec'
 
-require 'serverless_helpers/event/parser/shared_examples'
+require 'serverless_helpers/encoder/shared_examples'
 
-RSpec.describe ServerlessHelpers::Event::Parser::Avro do
+RSpec.describe ServerlessHelpers::Encoder::Avro do
   def define_schema(path, content)
     File.open(File.join("spec/schemas", path), "w") do |f|
       f.write(content)
@@ -64,7 +64,7 @@ RSpec.describe ServerlessHelpers::Event::Parser::Avro do
     define_schema "#{schema_name}.avsc", schema_json
   end
 
-  include_examples "servless_helpers/event/parser/shared_examples"
+  include_examples "servless_helpers/encoder/shared_examples"
 
   it "encodes consistently" do
     expect(parser.encode(message)).to eql avro_message

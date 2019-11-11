@@ -1,4 +1,4 @@
-module ServerlessHelpers::Event::Parser
+module ServerlessHelpers::Encoder
   class Base
     def initialize(options: {})
       @options = options

@@ -1,6 +1,6 @@
 require 'yaml'
 
-module ServerlessHelpers::Event::Parser
+module ServerlessHelpers::Encoder
   class Yaml < Base
     def encode(data)
       YAML.dump(data)

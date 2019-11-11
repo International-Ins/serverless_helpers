@@ -4,12 +4,12 @@ RSpec.describe ServerlessHelpers do
   end
 
   it 'sets a default event_parser' do
-    expect(described_class.config.event.parser).to be_kind_of ServerlessHelpers::Event::Parser::Base
+    expect(described_class.config.event.parser).to be_kind_of ServerlessHelpers::Encoder::Base
   end
 
   it 'allows event parser config via symbols' do
     described_class.config.event.parser = :yaml
-    expect(described_class.config.event.parser).to be_kind_of ServerlessHelpers::Event::Parser::Yaml
+    expect(described_class.config.event.parser).to be_kind_of ServerlessHelpers::Encoder::Yaml
   end
 
   it 'raises NameError for unfound parsers' do
