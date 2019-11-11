@@ -1,11 +1,7 @@
+require 'serverless_helpers/event/parser/shared_examples'
+
 RSpec.describe ServerlessHelpers::Event::Parser::Base do
-  let (:parser) { described_class.new({}) }
-
-  it "stubs encoding" do
-    expect{parser.encode('')}.to raise_error(NotImplementedError)
-  end
-
-  it "stubs decoding" do
-    expect{parser.decode('')}.to raise_error(NotImplementedError)
-  end
+  let(:parser) { described_class.new({}) }
+  # For sub-classes:
+  # include_examples "servless_helpers/event/parser/shared_examples"
 end

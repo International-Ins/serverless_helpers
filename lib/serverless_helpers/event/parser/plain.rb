@@ -7,5 +7,9 @@ module ServerlessHelpers::Event::Parser
     def decode(data)
       data
     end
+
+    def binary?
+      false
+    end
   end
 end

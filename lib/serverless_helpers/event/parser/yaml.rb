@@ -9,5 +9,9 @@ module ServerlessHelpers::Event::Parser
     def decode(data)
       YAML.load(data)
     end
+
+    def binary?
+      false
+    end
   end
 end

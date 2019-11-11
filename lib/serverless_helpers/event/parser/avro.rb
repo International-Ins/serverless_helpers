@@ -5,8 +5,7 @@ module ServerlessHelpers::Event::Parser
   class Avro < Base
     def initialize(options: {})
       super
-      @avro ||= options[:avro] if options.include? :avro
-      @avro ||= AvroTurf::Messaging.new(@options.excluding(:schema_name))
+      @avro ||= options[:avro] || AvroTurf::Messaging.new(@options.excluding(:schema_name))
     end
 
     def encode(data)
@@ -15,6 +14,10 @@ module ServerlessHelpers::Event::Parser
 
     def decode(data)
       @avro.decode(data, schema_name: @options[:schema_name])
+    end
+
+    def binary?
+      true
     end
   end
 end
