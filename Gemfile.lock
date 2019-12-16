@@ -45,7 +45,7 @@ GEM
       dry-core (~> 0.4, >= 0.4.7)
     dry-core (0.4.9)
       concurrent-ruby (~> 1.0)
-    excon (0.68.0)
+    excon (0.71.0)
     hashdiff (1.0.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
