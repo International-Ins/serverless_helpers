@@ -4,6 +4,7 @@
 
 require 'serverless_helpers/event/base'
 require 'serverless_helpers/event/aws'
+require 'serverless_helpers/event/kafka'
 
 require 'serverless_helpers/encoder'
 
