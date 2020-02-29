@@ -59,7 +59,7 @@ GEM
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -97,7 +97,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.0)
   byebug
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
   serverless_helpers!
   sinatra
