@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
     spec.add_development_dependency "webmock"
   spec.add_development_dependency "byebug"
 
-  spec.add_dependency "activesupport", "~> 6.0"
+  spec.add_dependency "activesupport", ">= 6", "< 8"
   spec.add_dependency "dry-configurable", "~> 0.8"
   spec.add_dependency "avro_turf", "~> 0.11"
   spec.add_dependency "aws-sdk-sns", '~> 1.20.0'
